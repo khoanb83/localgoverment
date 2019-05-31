@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Local Goverment</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="app_home">https://gis1061.esrivn.net</string>
+    <string name="CARRIER">Local Goverment</string>
+    <string name="URL_PORTAL">https://gis1061.esrivn.net/portal</string>
+    <string name="URL_REPORT">https://bandoso.mobifone.vn/arcgis/rest/services/mobi/Report_Drv/MapServer</string>
+    <string name="GROUP_ID">946e6c0bdbf844298ba42cb6ab3d9584</string>
+    <string name="LYR_OVERVIEW">Overview</string>
+    <string name="LYR_CELLSITE">Station</string>
+
+    <string name="system_msg">System Message</string>
+    <string name="error_msg">Error Try Again</string>
+    <string name="submit_msg">Save</string>
+    <string name="confirm_msg">OK</string>
+    <string name="cancel_msg">Cancel</string>
+</resources>
