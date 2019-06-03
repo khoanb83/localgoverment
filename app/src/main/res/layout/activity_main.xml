@@ -6,11 +6,134 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+    <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_header_bg">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="1dp">
 
-    <com.esri.arcgisruntime.mapping.view.MapView
-            android:id="@+id/mapView"
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/app_header_logo" />
+
+            <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold" android:textSize="18sp"/>
+
+            <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="26dp"
+                    android:text="@string/sub_app_name"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorSubNavBar"
+                    android:textStyle="bold"/>
+
+            <ImageButton
+                    android:id="@+id/btndanhsach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="80dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="btnDanhSach_Onclick"
+                    app:srcCompat="@drawable/app_circle_btn_edit" />
+
+            <ImageButton
+                    android:id="@+id/btnaddnewphananh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="48dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="btnAddnew_Onclick"
+                    app:srcCompat="@drawable/app_circle_btn_add" />
+
+            <ImageButton
+                    android:id="@+id/btnAppMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="28dp"
+
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/app_header_icn_more" />
+
+
+        </RelativeLayout>
+    </Toolbar>
+    <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/layoutParentBottomSheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             />
+            android:layout_marginTop="56dp">
+        <com.esri.arcgisruntime.mapping.view.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        />
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:layout_gravity="left|top"
+                android:visibility="visible">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="cmdHome_onClick"
+                    android:src="@drawable/ic_home_black_24dp" />
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="cmdZoomIn_onClick"
+                    android:src="@drawable/ic_zoom_in_black_24dp" />
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="cmdZoomOut_onClick"
+                    android:src="@drawable/ic_zoom_out_black_24dp" />
+            <ImageButton
+                    android:id="@+id/btnIdentify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:onClick="btnToolIdentify_click"
+                    app:srcCompat="@drawable/app_pin_orange" />
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="cmdLocation_onClick"
+                    android:src="@drawable/ic_location_black_24dp" />
+
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>

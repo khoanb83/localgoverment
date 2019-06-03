@@ -24,8 +24,13 @@ import com.esri.arcgisruntime.mapping.ArcGISMap
 import com.esri.arcgisruntime.portal.PortalItem
 import com.esri.arcgisruntime.portal.PortalQueryParameters
 import com.esri.arcgisruntime.portal.PortalQueryResultSet
+import com.google.gson.JsonObject
+import core.service.ServiceCallback
+
 
 public class Login : AppCompatActivity(), LoadStatusChangedListener, CompoundButton.OnCheckedChangeListener  {
+
+
    // khi bản đồ đã được load
     override fun loadStatusChanged(LoadStatusChangedEvent: LoadStatusChangedEvent?) {
 
@@ -33,15 +38,19 @@ public class Login : AppCompatActivity(), LoadStatusChangedListener, CompoundBut
        when (status) {
            LoadStatus.LOADED -> {
                //get token
-              // Config.gToken = ( Config.glbCredential.getCredential() as UserCredential ).token.a()
-               //save user password
+              var token = ( Config.myPortal?.getCredential() as UserCredential ).token.a()
+               var user=findViewById<EditText>(R.id.txtNguoiDung).text.toString()
+               var  pass=findViewById<EditText>(R.id.txtMatKhau).text.toString()
+               //save user password, luu cau hinh
                if ((findViewById<View>(R.id.chkSaveUserPassword) as CheckBox).isChecked)
                    Util.saveUserPassword(
                        _context,
-                       (findViewById<View>(R.id.txtNguoiDung) as EditText).text.toString(),
-                       (findViewById<View>(R.id.txtMatKhau) as EditText).text.toString(),
+                       user.toString(),
+                       pass.toString(),
+                       token,
                        true
                    )
+               Util.loadAppConfig(_context)
                val portal = LoadStatusChangedEvent?.getSource() as Portal
                val queryPortal = PortalQueryParameters()
                queryPortal.setQuery(PortalItem.Type.WEBMAP, Config.GROUP_ID, null)
@@ -91,22 +100,20 @@ public class Login : AppCompatActivity(), LoadStatusChangedListener, CompoundBut
     }
     fun btnLogin_click(v: View) {
 
-        val user=findViewById<EditText>(R.id.txtNguoiDung).text.toString()
-        val pass=findViewById<EditText>(R.id.txtMatKhau).text.toString()
+        var user=findViewById<EditText>(R.id.txtNguoiDung).text.toString()
+       var  pass=findViewById<EditText>(R.id.txtMatKhau).text.toString()
         if (user.isEmpty() || pass.isEmpty()){
             Util.alert(_context,"Sai mat khau");
         }
         //Đăng nhập hệ thống
         else{
             Config.glbCredential = UserCredential(user.toString(), pass.toString())
-
             // Create a Portal object
-            val portal = Portal(Config.URL_PORTAL, true)
-            portal.credential = Config.glbCredential
-            portal.addLoadStatusChangedListener(this)
-            portal.loadAsync()
+            Config.myPortal = Portal(Config.URL_PORTAL, true)
+            Config.myPortal?.credential = Config.glbCredential
+            Config.myPortal?.addLoadStatusChangedListener(this)
+            Config.myPortal?.loadAsync()
             Util.showProgress(_context, "Kiểm tra tài khoản người dùng & mật khẩu...")
-
         }
 
     }

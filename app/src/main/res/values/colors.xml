@@ -5,4 +5,43 @@
     <color name="colorAccent">#4169E1</color>
     <color name="colorBackground">#fffff0</color>
     <color name="colorTransparent">#AAFFFFF0</color>
+
+    <!--<color name="colorPrimary">#337FD4</color>-->
+    <!--<color name="colorPrimaryDark">#238BDB</color>-->
+    <color name="colorPrimaryLight">#A565CD</color>
+    <!--<color name="colorAccent">#EA80FC</color>-->
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDarkGray">#333333</color>
+    <color name="colorGray">#CCCCCC</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorBlueGreen">#1BBBA8</color>
+    <color name="colorBrown">#BF9000</color>
+    <color name="colorGreen">#548235</color>
+
+    <color name="colorFormTitle">#337FD4</color>
+    <color name="colorFormTitleBack">#D9E5ED</color>
+    <color name="colorFormValue">#7F90A1</color>
+    <color name="colorFormDivide">#D0D5D8</color>
+    <color name="colorFormSelector">#D9E5ED</color>
+    <color name="colorFormBack">#F5F9FC</color>
+
+    <color name="color">#EA80FC</color>
+
+    <color name="checkbox_filter_tint">#fff</color>
+
+
+    <color name="colorSubNavBar">#7BADF6</color>
+    <color name="colorSubHeaderGotoXY">#E4E9EB</color>
+    <color name="colorTitleBottomSheet">#337FD4</color>
+    <color name="colorBgBaseMap">#80E8F1FA</color>
+
+
+    <color name="corDefundo">#FFFFFF</color>
+    <color name="amarelo">#cfcf09</color>
+    <color name="verde">#26840a</color>
+    <color name="cinzaClaro">#d4d4d4</color>
+    <color name="cinzaEscuro">#4d4d4d</color>
+    <color name="azulClaro">#0897A7</color>
+    <color name="activeTools">#33ccff</color>
 </resources>

@@ -17,10 +17,12 @@
     <string name="GROUP_ID">946e6c0bdbf844298ba42cb6ab3d9584</string>
     <string name="LYR_OVERVIEW">Overview</string>
     <string name="LYR_CELLSITE">Station</string>
-
+    <string name="sub_app_name">Esrivn.com</string>
     <string name="system_msg">System Message</string>
     <string name="error_msg">Error Try Again</string>
     <string name="submit_msg">Save</string>
     <string name="confirm_msg">OK</string>
     <string name="cancel_msg">Cancel</string>
+
+    <string name="app_name1">LocalGoverment</string>
 </resources>

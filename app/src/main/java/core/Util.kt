@@ -1,16 +1,51 @@
 package core
 
+
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.os.Handler
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Spinner
 import android.widget.Toast
+import com.esri.arcgisruntime.geometry.Envelope
+import com.esri.arcgisruntime.geometry.SpatialReference
+import com.esri.arcgisruntime.geometry.SpatialReferences
+import com.esri.arcgisruntime.security.UserCredential
+import com.esri.arcgisruntime.symbology.PictureMarkerSymbol
+import com.esri.arcgisruntime.symbology.SimpleFillSymbol
+import com.esri.arcgisruntime.symbology.SimpleLineSymbol
+import com.google.gson.JsonArray
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
+import com.google.gson.JsonStreamParser
 import com.example.localgoverment.R
 
 object Util {
+    fun loadAppConfig(context:Context)
+    {
 
+
+        //symbol
+        Config.gSymbolMarkerGPS = PictureMarkerSymbol(context.getDrawable(R.drawable.app_pin_current) as BitmapDrawable)
+//        Config.gSymbolMarkerHighlight = PictureMarkerSymbol(context.getDrawable(R.drawable.app_pin_pink) as BitmapDrawable)
+//        Config.gSymbolMarkerHighlight.offsetY=10f
+//
+//        Config.gSymbolLineHighlight= SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, Color.MAGENTA,2f)
+//        Config.gSymbolFillHighlight= SimpleFillSymbol(SimpleFillSymbol.Style.NULL, Color.MAGENTA,Config.gSymbolLineHighlight)
+    }
     fun alert(context: Context, msg: String) {
         AlertDialog.Builder(context)
             .setTitle(R.string.system_msg)
@@ -60,13 +95,18 @@ object Util {
         editor.commit()
     }
 
-    fun saveUserPassword(context: Context, user: String, password: String, isSave: Boolean) {
-        val editor = context.getSharedPreferences("SAVE_CREDENTIAL", Context.MODE_PRIVATE).edit()
-        editor.putString("USER", user)
-        editor.putString("PASSWORD", password)
-        editor.putBoolean("IS_SAVE", isSave)
-        editor.commit()
-    }
+    fun saveUserPassword(context: Context, user: String,  pass: String,token: String, isSave: Boolean) {
+        //val sharedPref = context.getSharedPreferences("SAVE_CREDENTIAL", Context.MODE_PRIVATE).edit()
+        val sharedPref = context.getSharedPreferences("SAVE_CREDENTIAL", Context.MODE_P RIVATE)
+        val editor = sharedPref ?: return
+        with(editor.edit()) {
+            putString("USER", user)
+            putString("PASSWORD", pass)
+            putString("TOKEN", token)
+            editor.edit().putBoolean("IS_SAVE", isSave)
+            apply()
+        }
+        }
     fun showError(context: Context, ex: Throwable) {
         val dlg = AlertDialog.Builder(context)
         dlg.setIcon(R.drawable.ic_report_black_24dp)
@@ -75,5 +115,6 @@ object Util {
         dlg.setPositiveButton("Thoát", null)
         dlg.show()
     }
+
 
 }
